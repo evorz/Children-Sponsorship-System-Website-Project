@@ -54,6 +54,10 @@ def index():
 def about():
     return render_template("about.html")
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
 
 @app.route("/register",methods = ["GET","POST"])
 def register():
@@ -191,16 +195,20 @@ def childs():
 def dashboard():
     cursor = mysql.connection.cursor()
     
-    query = "Select * From articles where author = %s"
+    query = "SELECT * FROM articles"
+    result = cursor.execute(query)
+    articles = cursor.fetchall()
     
-    result = cursor.execute(query, (session["username"],))
+    query2 = "SELECT * FROM childs"
+    result2 = cursor.execute(query2)
+    childs = cursor.fetchall()
     
-    if result > 0:
-        articles = cursor.fetchall()
-        return render_template("dashboard.html",articles = articles)
-    
+    if result > 0 or result2 > 0:
+        return render_template("dashboard.html", articles=articles, childs=childs)
     else:
         return render_template("dashboard.html")
+
+    
      
 
 
@@ -253,14 +261,14 @@ def addchild():
 
     return render_template("addchild.html",form = form)
 
-@app.route("/delete/<string:id>")
+@app.route("/delete/article/<string:id>")
 @login_required
-def delete(id):
+def delete_article(id):
     cursor = mysql.connection.cursor()
     
-    query = "Select * from articles where author = %s and id = %s"
+    query = "Select * from articles where id = %s"
     
-    result = cursor.execute(query, (session["username"],id))
+    result = cursor.execute(query,(id,))
     
     if result > 0:
         query2 = "Delete from articles where id = %s"
@@ -273,6 +281,67 @@ def delete(id):
     else:
         flash("There is no such a article or you dont have a permission!","danger")
         return redirect(url_for("index"))
+    
+@app.route("/delete/child/<string:id>")
+@login_required
+def delete_child(id):
+    cursor = mysql.connection.cursor()
+    
+    query = "Select * from childs where id = %s"
+    
+    result = cursor.execute(query,(id,))
+    
+    if result > 0:
+        query2 = "Delete from childs where id = %s"
+        
+        cursor.execute(query2,(id,))
+        
+        mysql.connection.commit()
+        
+        return redirect(url_for("dashboard"))
+    else:
+        flash("There is no such a child or you dont have a permission!","danger")
+        return redirect(url_for("index"))
+    
+    
+@app.route("/edit/article/<string:id>",methods = ["GET","POST"])
+@login_required
+def update(id):
+    if request.method == "GET":
+        cursor = mysql.connection.cursor()
+        
+        query = "Select * from articles where id = %s and author = %s"
+        result = cursor.execute(query,(id,session["username"]))
+        
+        if result == 0:
+            flash("You dont have a permission to edit this article!","danger")
+            return redirect(url_for("index"))
+        else:
+            article = cursor.fetchone()
+            form = ArticleForm()
+            
+            form.title.data = article["title"]
+            form.content.data = article["content"]
+            return render_template("update.html",form = form)
+            
+    else:
+        #post request
+        form = ArticleForm(request.form)
+        
+        newTitle = form.title.data
+        newContent = form.content.data
+        
+        query2 = "Update articles Set title = %s, content = %s where id = %s"
+        
+        cursor = mysql.connection.cursor()
+        
+        cursor.execute(query2,(newTitle,newContent,id))
+        
+        mysql.connection.commit()
+        
+        flash("Article successfuly updated!","success")
+        
+        return redirect(url_for("dashboard"))
             
 
 
