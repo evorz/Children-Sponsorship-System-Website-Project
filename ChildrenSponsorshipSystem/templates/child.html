@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+{% if child %}
+
+<h4>{{ child.name }}</h4>
+<hr>
+Age : {{child.age}}
+<hr>
+{{child.about}}
+<hr>
+<a href = "/donate/{{ child.id }}" class = "btn btn-danger ">Donate Now</a>
+
+{% else %}
+
+<div class = "alert alert-warning">
+    Child not found!
+</div>
+    
+{% endif %}
+    
+
+
+
+    
+{% endblock body %}
+    
