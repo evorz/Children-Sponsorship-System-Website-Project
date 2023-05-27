@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+{% if profile %}
+
+<div><h3>Name : {{ profile.name }}</h3></div>
+<div><h3>Username : {{ profile.username }}</h3></div>
+<div><h3>Email : {{ profile.email }}</h3></div>
+<div><h3>Phone Number : {{ profile.phone }}</h3></div>
+<hr>
+<a href = "/profile/edit/{{ profile.id }}" class = "btn btn-danger ">Edit Profile</a>
+<a href = "/profile/changepassword/{{ profile.id }}" class = "btn btn-danger ">Change Password</a>
+<hr>
+
+{% if donations %}
+<br>
+<br>
+<hr>
+<h3>Donation History</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Donation ID</th>
+        <th scope="col">Donation Type</th>
+        <th scope="col">Donation Amount</th>
+        <th scope="col">Donator Name</th>
+        <th scope="col">Donator ID</th>
+        <th scope="col">Donated Child Name</th>
+        <th scope="col">Donated Child ID</th>
+        <th scope="col">Donation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+        {% for donation in donations %}
+            
+        <tr>
+            <th scope = "row"> {{ donation.id }} </th>
+            <td> {{ donation.type }} </td>
+            <td> {{ donation.amount }} </td>
+            <td> {{ donation.userName }} </td>
+            <td> {{ donation.userID }} </td>
+            <td> {{ donation.childName }} </td>
+            <td> {{ donation.childID }} </td>
+            <td> {{ donation.donationDate }} </td>
+
+
+        
+          </tr>
+
+        {% endfor %}
+            
+
+
+    </tbody>
+  </table>
+  
+  <hr>
+<br>
+{% endif %}
+
+{% else %}
+
+<div class = "alert alert-warning">
+    Profile not found!
+</div>
+    
+{% endif %}
+    
+    
+{% endblock body %}
+
+    

@@ -8,11 +8,10 @@
 <hr>
 
 <a href = "/addarticle" class = "btn btn-danger ">Add Article</a>
-<a href = "/addchild" class = "btn btn-danger ">Add Child</a>
 
 
 {% if articles %}
-
+<h3>Articles</h3>
 <table class="table table-hover">
     <thead>
       <tr>
@@ -35,7 +34,7 @@
             <td> {{ article.author }} </td>
             <td> {{ article.created_date }} </td>
             <td><a href="/edit/article/{{ article.id }}" class = "btn btn-success">Update</a></td>
-            <td><a href="/delete/article/{{ article.id }}" class = "btn btn-success">Delete</a></td>
+            <td><a href="/delete/article/{{ article.id }}" class = "btn btn-danger">Delete</a></td>
         </tr>
 
         {% endfor %}
@@ -45,23 +44,26 @@
     </tbody>
   </table>
   
-  <hr>
+  
 
 {% else %}
 <div class = "alert alert-danger">You don't have any articles yet!</div>
     
 {% endif %}
-
-
+<hr>
+<br>
+<br>
+<a href = "/addchild" class = "btn btn-danger ">Add Child</a> 
 {% if childs %}
+<h3>Children</h3>
 
-  
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Child ID</th>
       <th scope="col">Child Name</th>
       <th scope="col">Child Age</th>
+      <th scope="col">Child Money</th>
       <th scope="col">Created Date</th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -76,9 +78,10 @@
           <th scope = "row"> {{ child.id }} </th>
           <td><a href="/child/{{ child.id }}"> {{ child.name }} </a></td>
           <td> {{ child.age }} </td>
+          <td> {{ child.money }} </td>
           <td> {{ child.created_date }} </td>
           <td><a href="/edit/child/{{ child.id }}" class = "btn btn-success">Update</a></td>
-          <td><a href="/delete/child/{{ child.id }}" class = "btn btn-success">Delete</a></td>
+          <td><a href="/delete/child/{{ child.id }}" class = "btn btn-danger">Delete</a></td>
       </tr>
 
       {% endfor %}
@@ -91,6 +94,99 @@
 {% else %}
 <div class = "alert alert-danger">You don't have any childs yet!</div>
   
+{% endif %}
+
+<hr>
+<br>
+<br>
+
+{% if donations %}
+<h3>Donations</h3>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Donation ID</th>
+        <th scope="col">Donation Type</th>
+        <th scope="col">Donation Amount</th>
+        <th scope="col">Donator Name</th>
+        <th scope="col">Donator ID</th>
+        <th scope="col">Donated Child Name</th>
+        <th scope="col">Donated Child ID</th>
+        <th scope="col">Donation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+        {% for donation in donations %}
+            
+        <tr>
+            <th scope = "row"> {{ donation.id }} </th>
+            <td> {{ donation.type }} </td>
+            <td> {{ donation.amount }} </td>
+            <td> {{ donation.userName }} </td>
+            <td> {{ donation.userID }} </td>
+            <td> {{ donation.childName }} </td>
+            <td> {{ donation.childID }} </td>
+            <td> {{ donation.donationDate }} </td>
+
+
+        
+          </tr>
+
+        {% endfor %}
+            
+
+
+    </tbody>
+  </table>
+  
+  <hr>
+<br>
+<br>
+
+{% if users %}
+<h3>Users</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">User ID</th>
+      <th scope="col">User Name</th>
+      <th scope="col">User Username</th>
+      <th scope="col">User Email</th>
+      <th scope="col">User Phone Number</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      {% for user in users %}
+          
+      <tr>
+          <th scope = "row"> {{ user.id }} </th>
+          <td><a href="/user/{{ user.id }}"> {{ user.name }} </a></td>
+          <td> {{ user.username }} </td>
+          <td> {{ user.email }} </td>
+          <td> {{ user.phone }} </td>
+          <td><a href="/delete/user/{{ user.id }}" class = "btn btn-danger">Delete</a></td>
+      </tr>
+
+      {% endfor %}
+          
+
+
+  </tbody>
+</table>
+
+{% else %}
+<div class = "alert alert-danger">You don't have any childs yet!</div>
+  
+{% endif %}
+
+{% else %}
+<div class = "alert alert-danger">You don't have any articles yet!</div>
+    
 {% endif %}
   
     

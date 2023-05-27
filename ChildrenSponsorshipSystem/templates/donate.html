@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+{% if child %}
+
+<h4>{{ child.name }}</h4>
+<hr>
+Age: {{ child.age }}
+<hr>
+{{ child.about }}
+<hr>
+<h2>Donate with Bank Transfer</h2>
+<div class="form-group">
+    <div><strong>Bank Account Name : </strong> {{ child.name }}</div>
+    <div><strong>Bank : </strong>{{ child.bank }}</div>
+    <div><strong>IBAN : </strong>{{ child.iban }}</div>
+</div>
+<hr>
+<h5>OR</h5>
+<hr>
+<h2>Donate with Credit/Debit Card</h2>
+
+<form method="post">
+    {{ form.csrf_token }}
+    
+    <div class="form-group">
+        <label for="{{ form.amount.id }}">{{ form.amount.label }}</label>
+        {{ form.amount(class="form-control") }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.cc_name.id }}">{{ form.cc_name.label }}</label>
+        {{ form.cc_name(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        <label for="{{ form.cc_name.id }}">{{ form.cc_name.label }}</label>
+        {{ form.cc_name(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        <label for="{{ form.cc_no.id }}">{{ form.cc_no.label }}</label>
+        {{ form.cc_no(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        <label for="{{ form.cc_expr_date.id }}">{{ form.cc_expr_date.label }}</label>
+        {{ form.cc_expr_date(class="form-control") }}
+    </div>
+    
+    <div class="form-group">
+        <label for="{{ form.cc_cvv.id }}">{{ form.cc_cvv.label }}</label>
+        {{ form.cc_cvv(class="form-control") }}
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Donate</button>
+</form>
+
+
+{% else %}
+
+<div class="alert alert-warning">
+    Child not found!
+</div>
+
+{% endif %}
+
+{% endblock body %}
