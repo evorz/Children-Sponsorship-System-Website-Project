@@ -306,12 +306,12 @@ def delete_child(id):
     
 @app.route("/edit/article/<string:id>",methods = ["GET","POST"])
 @login_required
-def update(id):
+def update_article(id):
     if request.method == "GET":
         cursor = mysql.connection.cursor()
         
-        query = "Select * from articles where id = %s and author = %s"
-        result = cursor.execute(query,(id,session["username"]))
+        query = "Select * from articles where id = %s"
+        result = cursor.execute(query,(id,))
         
         if result == 0:
             flash("You dont have a permission to edit this article!","danger")
@@ -322,7 +322,7 @@ def update(id):
             
             form.title.data = article["title"]
             form.content.data = article["content"]
-            return render_template("update.html",form = form)
+            return render_template("updatearticle.html",form = form)
             
     else:
         #post request
@@ -340,6 +340,50 @@ def update(id):
         mysql.connection.commit()
         
         flash("Article successfuly updated!","success")
+        
+        return redirect(url_for("dashboard"))
+    
+
+@app.route("/edit/child/<string:id>",methods = ["GET","POST"])
+@login_required
+def update_child(id):
+    if request.method == "GET":
+        cursor = mysql.connection.cursor()
+        
+        query = "Select * from childs where id = %s "
+        result = cursor.execute(query,(id,))
+        
+        if result == 0:
+            flash("You dont have a permission to edit this article!","danger")
+            return redirect(url_for("index"))
+        else:
+            child = cursor.fetchone()
+            form = ChildForm()
+            
+            form.name.data = child["name"]
+            form.age.data = child["age"]
+            form.iban.data = child["iban"]
+            form.about.data = child["about"]
+            return render_template("updatechild.html",form = form)
+            
+    else:
+        #post request
+        form = ChildForm(request.form)
+        
+        newName = form.name.data
+        newAge = form.age.data
+        newIban = form.iban.data
+        newAbout = form.about.data
+        
+        query2 = "Update childs Set name = %s,age = %s,iban = %s,about = %s where id = %s"
+        
+        cursor = mysql.connection.cursor()
+        
+        cursor.execute(query2,(newName,newAge,newIban,newAbout,id))
+        
+        mysql.connection.commit()
+        
+        flash("Children successfuly updated!","success")
         
         return redirect(url_for("dashboard"))
             

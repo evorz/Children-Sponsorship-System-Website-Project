@@ -34,8 +34,8 @@
             <td><a href="/article/{{ article.id }}"> {{ article.title }} </a></td>
             <td> {{ article.author }} </td>
             <td> {{ article.created_date }} </td>
-            <td><a href="/edit/article/{{ article.id }}" class = "btn btn-danger">Update</a></td>
-            <td><a href="/delete/article/{{ article.id }}" class = "btn btn-danger">Delete</a></td>
+            <td><a href="/edit/article/{{ article.id }}" class = "btn btn-success">Update</a></td>
+            <td><a href="/delete/article/{{ article.id }}" class = "btn btn-success">Delete</a></td>
         </tr>
 
         {% endfor %}
@@ -77,8 +77,8 @@
           <td><a href="/child/{{ child.id }}"> {{ child.name }} </a></td>
           <td> {{ child.age }} </td>
           <td> {{ child.created_date }} </td>
-          <td><a href="/edit/child/{{ child.id }}" class = "btn btn-danger">Update</a></td>
-          <td><a href="/delete/child/{{ child.id }}" class = "btn btn-danger">Delete</a></td>
+          <td><a href="/edit/child/{{ child.id }}" class = "btn btn-success">Update</a></td>
+          <td><a href="/delete/child/{{ child.id }}" class = "btn btn-success">Delete</a></td>
       </tr>
 
       {% endfor %}

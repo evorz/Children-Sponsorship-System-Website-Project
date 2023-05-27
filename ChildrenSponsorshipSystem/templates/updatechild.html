@@ -2,11 +2,8 @@
 
 
 {% block body %}
-<h3>Add Children</h3>
-
-
 {% from "includes/formhelpers.html" import render_field %}    
-
+<h3>Update Children</h3>
 <hr>
 
 <form method = "post">
@@ -15,7 +12,7 @@
     {{ render_field(form.age,class = "form-control") }}
     {{ render_field(form.iban,class = "form-control") }}
     {{ render_field(form.about,class = "form-control") }}
-    <button type="submit" class="btn btn-danger">Add Child</button>
+    <button type="submit" class="btn btn-danger">Update Children</button>
 
 </form>
     
