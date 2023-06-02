@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
-
 {% block body %}
 {% from "includes/formhelpers.html" import render_field %}    
 <h3>Edit Profile</h3>
 <hr>
 
-<form method = "post">
+<form method="post">
     
-    {{ render_field(form.name,class = "form-control") }}
-    {{ render_field(form.email,class = "form-control") }}
-    {{ render_field(form.phone,class = "form-control") }}
+    {{ render_field(form.name, class="form-control") }}
+    {{ render_field(form.email, class="form-control") }}
+    {{ render_field(form.phone, class="form-control") }}
+    {{ render_field(form.profile_photo_url, class="form-control") }}
 
     <button type="submit" class="btn btn-danger">Update Profile</button>
 

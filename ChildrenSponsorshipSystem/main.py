@@ -47,6 +47,17 @@ app.config["MYSQL_DB"] = "css"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 mysql = MySQL(app)
 
+#sessionu sürekli güncelleiyor
+@app.before_request   
+def update_session():
+    if session.get('logged_in'):
+        user_id = session.get('id')
+        cursor = mysql.connection.cursor()
+        query = "SELECT profile_photo_url FROM users WHERE id = %s"
+        cursor.execute(query, (user_id,))
+        result = cursor.fetchone()
+        if result:
+            session['pp'] = result['profile_photo_url']
 
 #Ana sayfa için
 @app.route("/")
@@ -112,12 +123,16 @@ def login():
             data = cursor.fetchone()
             real_password = data["password"]
             user_id = data["id"]
+            profile_photo_url = data["profile_photo_url"]
             if sha256_crypt.verify(password_entered,real_password):
                 flash("You successfuly login!","success")
                 
                 session["logged_in"] = True
                 session["username"] = username
                 session['id'] = user_id
+                session['pp'] = profile_photo_url
+
+
                 
                 
                 return redirect(url_for("index"))
@@ -190,47 +205,47 @@ def profile(id):
     else:
         return render_template("profile.html")
     
-@app.route("/profile/edit/<string:id>",methods = ["GET","POST"])
+@app.route("/profile/edit/<string:id>", methods=["GET", "POST"])
 @login_required
 def update_profile(id):
+    cursor = mysql.connection.cursor()
+
     if request.method == "GET":
-        cursor = mysql.connection.cursor()
-        
-        query = "Select * from users where id = %s "
-        result = cursor.execute(query,(id,))
-        
+        query = "SELECT * FROM users WHERE id = %s"
+        result = cursor.execute(query, (id,))
+
         if result == 0:
-            flash("You dont have a permission to edit this profile!","danger")
+            flash("You don't have permission to edit this profile!", "danger")
             return redirect(url_for("index"))
         else:
             user = cursor.fetchone()
-            form = RegisterForm()
-            
+            form = UpdateProfileForm()
+
             form.name.data = user["name"]
             form.email.data = user["email"]
             form.phone.data = user["phone"]
-            return render_template("updateprofile.html",form = form)
-            
+            form.profile_photo_url.data = user["profile_photo_url"]
+            session['pp'] = user["profile_photo_url"]
+            return render_template("updateprofile.html", form=form)
+
     else:
-        #post request
-        form = RegisterForm(request.form)
-        
+        form = UpdateProfileForm(request.form)
+
         newName = form.name.data
         newEmail = form.email.data
         newPhone = form.phone.data
+        newProfilePhotoUrl = form.profile_photo_url.data
 
-        
-        query2 = "Update users Set name = %s,email = %s,phone = %s where id = %s"
-        
-        cursor = mysql.connection.cursor()
-        
-        cursor.execute(query2,(newName,newEmail,newPhone,id))
-        
+        query2 = "UPDATE users SET name = %s, email = %s, phone = %s, profile_photo_url = %s WHERE id = %s"
+        cursor.execute(query2, (newName, newEmail, newPhone, newProfilePhotoUrl, id))
         mysql.connection.commit()
-        
-        flash("Profile successfuly updated!","success")
-        
+
+        flash("Profile successfully updated!", "success")
         return redirect(url_for("index"))
+
+
+
+
 
 
 #Article id alarak o article özel sayfaya yönlendirmek için
@@ -361,12 +376,13 @@ def addchild():
         iban = form.iban.data
         bank = form.bank.data
         about = form.about.data
+        child_photo_url = form.child_photo_url.data
         
         
         cursor = mysql.connection.cursor()
-        query = "Insert into childs (name,age,iban,bank,about) VALUES(%s,%s,%s,%s,%s)"
+        query = "Insert into childs (name,age,iban,bank,about,child_photo_url) VALUES(%s,%s,%s,%s,%s,%s)"
         
-        cursor.execute(query,(name,age,iban,bank,about))
+        cursor.execute(query,(name,age,iban,bank,about,child_photo_url))
         
         mysql.connection.commit()
         
@@ -500,28 +516,31 @@ def update_child(id):
             child = cursor.fetchone()
             form = ChildForm()
             
+            form.child_photo_url.data = child["child_photo_url"]
             form.name.data = child["name"]
             form.age.data = child["age"]
             form.iban.data = child["iban"]
             form.about.data = child["about"]
             form.bank.data = child["bank"]
+            
             return render_template("updatechild.html",form = form)
             
     else:
         #post request
         form = ChildForm(request.form)
         
+        newPhoto = form.child_photo_url.data
         newName = form.name.data
         newAge = form.age.data
         newIban = form.iban.data
         newAbout = form.about.data
         newBank = form.bank.data
         
-        query2 = "Update childs Set name = %s,age = %s,iban = %s,about = %s,bank = %s where id = %s"
+        query2 = "Update childs Set name = %s,age = %s,iban = %s,about = %s,bank = %s,child_photo_url = %s where id = %s"
         
         cursor = mysql.connection.cursor()
         
-        cursor.execute(query2,(newName,newAge,newIban,newAbout,newBank,id))
+        cursor.execute(query2,(newName,newAge,newIban,newAbout,newBank,newPhoto,id))
         
         mysql.connection.commit()
         
@@ -619,6 +638,7 @@ class ChildForm(Form):
     bank = StringField("Child Bank",validators = [validators.Length(min = 5, max = 100)])
     iban = StringField("Child Iban",validators = [validators.Length(min = 5, max = 100)])
     about = TextAreaField("About Child",validators = [validators.Length(min = 10)])
+    child_photo_url = StringField("Child Photo URL")
     
 #Çocuklar için form. ELLEMEYİN!  
 class DonationForm(Form):
@@ -627,6 +647,18 @@ class DonationForm(Form):
     cc_no = StringField("Card No",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a credit card no!")])
     cc_expr_date = StringField("Card Expiration Date",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a card expiration date!")])
     cc_cvv = StringField("Card CVV",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a card cvv!")])
+
+class UpdateProfileForm(Form):
+    name = StringField("Name Surname", validators=[validators.Length(min=4, max=25)])
+    username = StringField("Username", validators=[validators.Length(min=5, max=35)])
+    email = StringField("Email", validators=[validators.Email(message="Please enter a valid email!")])
+    phone = StringField("Phone Number", validators=[validators.Length(min=1, max=15)])
+    password = PasswordField("Password", validators=[
+        validators.DataRequired(message="Please enter a password!"),
+        validators.EqualTo(fieldname="confirm", message="Passwords don't match!")
+    ])
+    confirm = PasswordField("Confirm Password")
+    profile_photo_url = StringField("Profile Photo URL")
 
 #SİLMEYİN!
 if __name__ == "__main__":

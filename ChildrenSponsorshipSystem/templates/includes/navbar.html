@@ -45,7 +45,9 @@
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link" href="/profile/{{ session['id'] }}">Profile</a>
+          <a href="/profile/{{ session['id'] }}" class="nav-link">
+            <img src="{{ session['pp'] }}" width="50" height="50">
+          </a>
         </li>
 
         {% if session["username"] == "admin" or session["username"] == "Admin" %}
