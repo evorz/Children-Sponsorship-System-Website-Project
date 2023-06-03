@@ -1,11 +1,10 @@
 {% extends 'layout.html' %}
 
-
 {% block body %}
 
 {% if profile %}
 
-<div><img src="{{ profile.profile_photo_url }}" width="200" height="200"> </div>
+<div><img class="resize-profile-main" src="{{ profile.profile_photo_url }}"> </div>
 <div><h3>Name : {{ profile.name }}</h3></div>
 <div><h3>Username : {{ profile.username }}</h3></div>
 <div><h3>Email : {{ profile.email }}</h3></div>

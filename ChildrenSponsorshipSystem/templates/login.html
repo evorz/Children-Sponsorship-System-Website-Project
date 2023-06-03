@@ -7,16 +7,17 @@
 <h3>Login</h3>
 <hr>
 
-<form method = "post">
-    
-    {{ render_field(form.username) }}
-    {{ render_field(form.password) }}
-    <button type="submit" class="btn btn-primary">Login</button>
+<img class="login-logo" src="static\images\logo1.png" />
+<img class="login-logo-back" src="static\images\logoback.png" />
 
+<form method = "post">
+
+    {{ render_field(form.username, class="form-control", placeholder=" Enter your username") }}
+    {{ render_field(form.password, class="form-control", placeholder=" Enter your password") }}
+    <button type="submit" class="register-button">Log-In</button>
+    
 </form>
 {% endblock body %}
-    
-
 
 
 

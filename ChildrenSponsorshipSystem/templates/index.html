@@ -1,12 +1,39 @@
 {% extends 'layout.html' %}
 
-
-
 {% block body %}
-<div class="jumbotron text-center">
-    <h3>Welcome to Children Sponsorship System</h3>
-    <p>Make childrens life better!</p>
-</div>
+
+ <body>
+    <div class="home-parent">
+         <div class="home">
+            <img class="blue-big-cloud" src="static\images\blue-big-cloud.png" />
+            <img class="blue-medium-cloud" src="static\images\blue-medium-cloud.png" />
+
+            <a href='/childs'>
+                <button class="donate-button">Donate Now</button>
+            </a>
+
+
+
+                <div class="donating-is-about-container">
+                  <span class="donating-is-about-container1">
+                    <p class="donating-is-about">Donating is about making</p>
+                    <p class="donating-is">a
+                      <span class="difference">Difference.</span>
+                    </p>
+                  </span>
+                </div>
+                
+                <div class="child-sponsorship-is">
+                  Child sponsorship is a popular way for individuals and organizations
+                  to support children in need. In this system, a sponsor provides
+                  regular financial contributions to support the education, healthcare,
+                  and basic needs of a specific child.
+                </div>
+              </div>
+            </div>
+        
+</body>
+
 {% endblock body %}
 
 

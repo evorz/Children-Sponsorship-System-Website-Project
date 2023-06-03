@@ -1,0 +1,30 @@
+
+.register-logo {
+  position: absolute;
+  bottom: 240px;
+  left: 550px;
+  width: 217px;
+  height: 167px;
+  object-fit: cover;
+}
+.register-logo-back {
+  position: absolute;
+  bottom: 190px;
+  left: 530px;
+  width: 255.15px;
+  height: 326px;
+}
+
+.form-control {
+  background-color: #f8f9fa;
+  color: rgb(0, 0, 0);
+  width: 25%;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  transition: width 0.4s ease-in-out;
+}
+.form-control:focus{
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+}
+

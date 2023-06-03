@@ -7,27 +7,20 @@
 <h3>Register</h3>
 <hr>
 
+<img class="register-logo" src="static\images\logo1.png" />
+<img class="register-logo-back" src="static\images\logoback.png" />
+
 <form method = "post">
-    
-    {{ render_field(form.name,class = "form-control") }}
-    {{ render_field(form.username,class = "form-control") }}
-    {{ render_field(form.email,class = "form-control") }}
-    {{ render_field(form.phone,class = "form-control") }}
-    {{ render_field(form.password,class = "form-control") }}
-    {{ render_field(form.confirm,class = "form-control") }}
-    <button type="submit" class="btn btn-primary">Register</button>
+
+    {{ render_field(form.name, class="form-control", placeholder=" Enter your name") }}
+    {{ render_field(form.username, class="form-control", placeholder=" Enter your username") }}
+    {{ render_field(form.email, class="form-control", placeholder=" Enter your email") }}
+    {{ render_field(form.phone, class="form-control", placeholder=" Enter your phone number") }}
+    {{ render_field(form.password, class="form-control", placeholder=" Enter your password") }}
+    {{ render_field(form.confirm, class="form-control", placeholder=" Confirm your password") }}
+    <button type="submit" class="register-button">Register</button>
     
 </form>
+
 {% endblock body %}
     
-
-
-
-
-
-
-
-
-
-
-
