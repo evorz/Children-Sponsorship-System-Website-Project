@@ -1,25 +1,36 @@
 {% extends "layout.html" %}
 
-
 {% block body %}
-<h3>Children List</h3>
-<hr>
+<div><p class="Help-Us">Help Us <span class="save">Save</span> The World</p>
 
+    <div class="join-us-in">
+        Join us in our mission to make the world a better place for children
+        in need. Your support can help us provide critical resources and
+        services that make a meaningful difference in the lives of children.
+</div>
 
 {% if childs %}
 
-<ul class = "list-group">
-    
-    {% for child in  childs  %}
-        <li class = "list-group-item"><a href="/child/{{child.id}}">{{child.name}} | {{child.age}}</a></li>
-    {% endfor %}
-        
-</ul>
+{% for i in range(0, childs|length, 3) %}
+    <div class="row">
+        {% for child in childs[i:i+3] %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                            <img src="{{child.child_photo_url}}">
+                            <p class="child-list">Child No: {{child.id}}</p>
+                            <p class="child-list2">Child's Name: {{child.name}}</h5>
+                            <p class="child-list2">Age: {{child.age}}</p>
+                            <a href="/child/{{child.id}}"><button class="donate-child">Donate Now</button> </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
 
 {% else %}
-<div class = "alert alert-danger">There is no childs in this page.</div>
-    
+<div class="alert alert-danger">There are no children on this page.</div>
 {% endif %}
-    
+
 {% endblock body %}
-    
