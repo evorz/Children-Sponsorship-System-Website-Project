@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<div><p class="Help-Us">Help Us <span class="save">Save</span> The World</p>
+
+<div class="join-us-in">
+    Join us in our mission to make the world a better place for children
+    in need. Your support can help us provide critical resources and
+    services that make a meaningful difference in the lives of children.
+</div>
+
+<div>
+<h3 class="children-list">Children List :</h3>
+</div>
+{% if childs %}
+<div>
+<ul class = "list-group">
+    
+    {% for child in  childs  %}
+        <li class = "list-group-item list-group-item-primary list-group-item-action"><a class="child-list" href="/child/{{child.id}}">{{child.name}} | {{child.age}}</a></li>
+    {% endfor %}
+        
+</ul>
+</div>
+{% else %}
+<div class = "alert alert-danger">There is no childs in this page.</div>
+</div>   
+{% endif %}
+    
+{% endblock body %}
+    

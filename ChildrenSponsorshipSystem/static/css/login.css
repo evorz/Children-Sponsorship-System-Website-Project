@@ -1,16 +1,16 @@
 
 .login-logo {
   position: absolute;
-  bottom: 240px;
-  left: 550px;
+  top: 300px;
+  left: 90px;
   width: 217px;
   height: 167px;
   object-fit: cover;
 }
 .login-logo-back {
   position: absolute;
-  bottom: 190px;
-  left: 530px;
+  top: 195px;
+  left: 65px;
   width: 255.15px;
   height: 326px;
 }

@@ -31,13 +31,13 @@
         {% if session["username"] == "admin" or session["username"] == "Admin" %}
 
         <a href='/dashboard'>
-          <button class="login-button">Dashboard</button>
+          <button class="nav-log-out-button">Dashboard</button>
         </a>
         {% endif %}
         
         {% if session["logged_in"] == True %}
-        <a href='/logout'>
-          <button class="login-button">Log-Out</button>
+        <a  href='/logout'>
+          <button class="nav-dashboard-button">Log-Out</button>
         </a>
 
         <a href="/profile/{{ session['id'] }}" >
