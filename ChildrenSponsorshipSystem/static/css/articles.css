@@ -51,3 +51,14 @@
 .article-button:active {
   opacity: 0.7;
 }
+.Head-Article {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(6, 130, 255);
+}
