@@ -75,4 +75,17 @@
   opacity: 0.7;
 }
 
+.child-name {
+  font-weight: normal;
+  font-size: 17px;
+}
+.child-age{
+  font-weight: normal;
+  font-size: 17px;
+}
+.child-photo {
+  height: 211px;
+  width: 280px;
+  border-radius: 20px;
+}
 

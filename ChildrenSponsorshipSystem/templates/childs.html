@@ -17,10 +17,10 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                            <img src="{{child.child_photo_url}}">
+                            <img class="child-photo" src="{{child.child_photo_url}}">
                             <p class="child-list">Child No: {{child.id}}</p>
-                            <p class="child-list2">Child's Name: {{child.name}}</h5>
-                            <p class="child-list2">Age: {{child.age}}</p>
+                            <p class="child-list2">Child's Name: <span class="child-name">{{child.name}}</span></h5>
+                            <p class="child-list2">Age: <span class="child-age">{{child.age}}</span></p>
                             <a href="/child/{{child.id}}"><button class="donate-child">Donate Now</button> </a>
                     </div>
                 </div>
