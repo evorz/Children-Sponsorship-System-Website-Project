@@ -12,6 +12,42 @@
 
 .article-list {
   font-weight: bold;
-  color: black;
-  text-align: justify;
+  color: rgb(6, 130, 255);
+  text-align: left;
+}
+
+.articles-photo {
+  height: 211px;
+  width: 280px;
+  border-radius: 20px;
+}
+
+.article-body{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.article-button {
+  color: white;
+  border-color: rgb(6, 130, 255);
+  background-color: rgb(6, 130, 255);
+  border-style: solid;
+  font-weight: bold;
+  border-width: 1px;
+  border-radius: 24px;
+  cursor: pointer;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 32px;
+  padding-left: 32px;
+  margin-left: 65px;
+  margin-right: 58px;
+  transition: background-color 0.35s, color 0.35s;
+}
+.article-button:hover {
+  background-color: white;
+  color: rgb(6, 130, 255);
+}
+.article-button:active {
+  opacity: 0.7;
 }

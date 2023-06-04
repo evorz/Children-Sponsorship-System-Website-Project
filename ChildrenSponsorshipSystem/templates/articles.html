@@ -13,10 +13,11 @@
         {% for article in articles[i:i+3] %}
             <div class="col-md-4">
                 <div class="card-articles">
-                    <div class="card-body">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFFnFeI5Gg6ngxXKgqnDKwvZUK3HFB0eLOg&usqp=CAU">
+                    <div class="article-body">
+                        <img class="articles-photo" src="{{article.thumbnail_url}}">
                         <hr>
-                        <p class = "article-list"><a href="/article/{{article.id}}">{{article.title}}</a></p>
+                        <p class = "article-list">{{article.title}}</p>
+                        <a href="/article/{{article.id}}"><button class="article-button">Read Now</button> </a>
                     </div>
                 </div>
             </div>
