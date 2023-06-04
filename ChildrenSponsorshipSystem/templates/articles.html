@@ -8,13 +8,21 @@
 
 {% if articles %}
 
-<ul class = "list-group">
-    
-    {% for article in  articles  %}
-        <li class = "list-group-item"><a href="/article/{{article.id}}">{{article.title}}</a></li>
-    {% endfor %}
-        
-</ul>
+{% for i in range(0, articles|length, 3) %}
+    <div class="row">
+        {% for article in articles[i:i+3] %}
+            <div class="col-md-4">
+                <div class="card-articles">
+                    <div class="card-body">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFFnFeI5Gg6ngxXKgqnDKwvZUK3HFB0eLOg&usqp=CAU">
+                        <hr>
+                        <p class = "article-list"><a href="/article/{{article.id}}">{{article.title}}</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
 
 {% else %}
 <div class = "alert alert-danger">There is no articles in this page.</div>
