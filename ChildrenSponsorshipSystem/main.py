@@ -20,7 +20,7 @@ class RegisterForm(Form):
     name = StringField("Name Surname",validators = [validators.Length(min = 4, max = 25)])
     username = StringField("Username",validators = [validators.Length(min = 5, max = 35)])
     email = StringField("Email",validators = [validators.Email(message = "Please enter a valid email!")])
-    phone = StringField("Phone Number",validators = [validators.Length(min = 1, max = 15)])
+    phone = StringField("Phone Number",validators = [validators.Length(min = 1, max = 22)])
     password = PasswordField("Password",validators = [
         validators.DataRequired(message = "Please enter a password!"),
         validators.EqualTo(fieldname = "confirm",message = "Password doesnt match!")
@@ -131,9 +131,6 @@ def login():
                 session["username"] = username
                 session['id'] = user_id
                 session['pp'] = profile_photo_url
-
-
-                
                 
                 return redirect(url_for("index"))
             
@@ -242,10 +239,6 @@ def update_profile(id):
 
         flash("Profile successfully updated!", "success")
         return redirect(url_for("index"))
-
-
-
-
 
 
 #Article id alarak o article özel sayfaya yönlendirmek için
@@ -623,8 +616,6 @@ def donate(id):
 
     return render_template("donate.html", form=form, child=child)
         
-            
-
 
 #Makale için form. ELLEMEYİN!
 class ArticleForm(Form):
