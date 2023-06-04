@@ -47,7 +47,7 @@ app.config["MYSQL_DB"] = "css"
 app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 mysql = MySQL(app)
 
-#sessionu sürekli güncelleiyor
+#sessionu sürekli güncelliyor
 @app.before_request   
 def update_session():
     if session.get('logged_in'):
@@ -655,6 +655,7 @@ class UpdateProfileForm(Form):
     ])
     confirm = PasswordField("Confirm Password")
     profile_photo_url = StringField("Profile Photo URL")
+
 
 #SİLMEYİN!
 if __name__ == "__main__":
