@@ -343,13 +343,14 @@ def addarticle():
     form = ArticleForm(request.form)
     
     if request.method == "POST" and form.validate():
+        thumbnail_url = form.thumbnail_url.data
         title = form.title.data
         content = form.content.data
         
         cursor = mysql.connection.cursor()
-        query = "Insert into articles (title,author,content) VALUES(%s,%s,%s)"
+        query = "Insert into articles (thumbnail_url,title,author,content) VALUES(%s,%s,%s,%s)"
         
-        cursor.execute(query,(title,session["username"],content))
+        cursor.execute(query,(thumbnail_url,title,session["username"],content))
         
         mysql.connection.commit()
         
@@ -472,7 +473,7 @@ def update_article(id):
         else:
             article = cursor.fetchone()
             form = ArticleForm()
-            
+            form.thumbnail_url.data = article["thumbnail_url"]
             form.title.data = article["title"]
             form.content.data = article["content"]
             return render_template("updatearticle.html",form = form)
@@ -481,14 +482,15 @@ def update_article(id):
         #post request
         form = ArticleForm(request.form)
         
+        newThumbnailUrl = form.thumbnail_url.data
         newTitle = form.title.data
         newContent = form.content.data
         
-        query2 = "Update articles Set title = %s, content = %s where id = %s"
+        query2 = "Update articles Set thumbnail_url = %s, title = %s, content = %s where id = %s"
         
         cursor = mysql.connection.cursor()
         
-        cursor.execute(query2,(newTitle,newContent,id))
+        cursor.execute(query2,(newThumbnailUrl,newTitle,newContent,id))
         
         mysql.connection.commit()
         
@@ -624,6 +626,7 @@ def donate(id):
 
 #Makale için form. ELLEMEYİN!
 class ArticleForm(Form):
+    thumbnail_url = StringField("Article Thumbnail URL")
     title = StringField("Article Title",validators = [validators.Length(min = 5, max = 100)])
     content = TextAreaField("Article Content",validators = [validators.Length(min = 10)])
 
