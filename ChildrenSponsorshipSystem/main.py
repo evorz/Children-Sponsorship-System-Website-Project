@@ -145,6 +145,7 @@ def login():
 
 
 @app.route("/profile/changepassword/<string:id>",methods = ["GET","POST"])
+@login_required
 def change_password(id):
     form = ChangePasswordForm(request.form)
     
@@ -185,6 +186,7 @@ def change_password(id):
     return render_template("changepassword.html",form = form)
    
 @app.route("/profile/<string:id>")
+@login_required
 def profile(id):
     cursor = mysql.connection.cursor()
     
@@ -336,6 +338,7 @@ def dashboard():
 
 #Makale ekleme sayfası için
 @app.route("/addarticle",methods = ["GET","POST"])
+@login_required
 def addarticle():
     form = ArticleForm(request.form)
     
@@ -360,6 +363,7 @@ def addarticle():
 
 #Çocuk ekleme sayfası için
 @app.route("/addchild",methods = ["GET","POST"])
+@login_required
 def addchild():
     form = ChildForm(request.form)
     
@@ -543,6 +547,7 @@ def update_child(id):
     
 #Donation sayfası için no ya göre
 @app.route("/donate/<string:id>", methods=["GET", "POST"])
+@login_required
 def donate(id):
     form = DonationForm(request.form)
 
