@@ -5,7 +5,7 @@ body {
 
 :root {
   /* fonts */
-  --font-plus-jakarta-sans: "Roboto";
+  --font-plus-roboto: "Roboto";
 
   /* font sizes */
   --font-size-lg: 18px;

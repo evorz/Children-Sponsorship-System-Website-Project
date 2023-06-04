@@ -8,16 +8,16 @@
 .contact-child {
   cursor: default;
   position: absolute;
-  top: 70.07px;
+  top: -90.07px;
   left: 0;
-  width: 808.73px;
+  width: 850px;
   height: 802.66px;
 }
 
 .contact-item {
   position: absolute;
   top: 174.07px;
-  left: 0;
+  left: 0px;
   width: 808.73px;
   height: 802.66px;
 }
