@@ -628,7 +628,7 @@ class ArticleForm(Form):
 #Çocuklar için form. ELLEMEYİN!  
 class ChildForm(Form):
     name = StringField("Child Name",validators = [validators.Length(min = 5, max = 100)])
-    age = IntegerField("Child Age",validators = [validators.Length(min = 1, max = 2),validators.NumberRange(min=0, message="Please enter a positive amount!")])
+    age = IntegerField("Child Age",validators = [validators.NumberRange(min=0, message="Please enter a positive amount!")])
     bank = StringField("Child Bank",validators = [validators.Length(min = 5, max = 100)])
     iban = StringField("Child Iban",validators = [validators.Length(min = 5, max = 100)])
     about = TextAreaField("About Child",validators = [validators.Length(min = 10)])
