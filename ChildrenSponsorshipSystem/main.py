@@ -633,7 +633,7 @@ class ArticleForm(Form):
 #Çocuklar için form. ELLEMEYİN!  
 class ChildForm(Form):
     name = StringField("Child Name",validators = [validators.Length(min = 5, max = 100)])
-    age = StringField("Child Age",validators = [validators.Length(min = 1, max = 2)])
+    age = IntegerField("Child Age",validators = [validators.Length(min = 1, max = 2),validators.NumberRange(min=0, message="Please enter a positive amount!")])
     bank = StringField("Child Bank",validators = [validators.Length(min = 5, max = 100)])
     iban = StringField("Child Iban",validators = [validators.Length(min = 5, max = 100)])
     about = TextAreaField("About Child",validators = [validators.Length(min = 10)])
@@ -641,11 +641,11 @@ class ChildForm(Form):
     
 #Çocuklar için form. ELLEMEYİN!  
 class DonationForm(Form):
-    amount = FloatField("Donation Amount",validators = [validators.DataRequired(message = "Please enter a amount!")])
+    amount = IntegerField("Donation Amount",validators = [validators.DataRequired(message = "Please enter a amount!"),validators.NumberRange(min=0, message="Please enter a positive amount!")])
     cc_name = StringField("Card Holder Name",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a card holder name!")])
     cc_no = StringField("Card No",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a credit card no!")])
     cc_expr_date = StringField("Card Expiration Date",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a card expiration date!")])
-    cc_cvv = StringField("Card CVV",validators = [validators.Length(min = 0, max = 100),validators.DataRequired(message = "Please enter a card cvv!")])
+    cc_cvv = IntegerField("Card CVV",validators = [validators.DataRequired(message = "Please enter a card cvv!"),validators.NumberRange(min = 100, max = 999 ,message="Please enter a correct cvv number!")])
 
 class UpdateProfileForm(Form):
     name = StringField("Name Surname", validators=[validators.Length(min=4, max=25)])
