@@ -2,10 +2,12 @@ body {
   margin: 0;
   line-height: normal;
 }
-
+p{
+  font-family: 'Roboto', sans-serif;
+}
 :root {
   /* fonts */
-  --font-plus-roboto: "Roboto";
+  --font-plus-roboto: 'Roboto';
 
   /* font sizes */
   --font-size-lg: 18px;

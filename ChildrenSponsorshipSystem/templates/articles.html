@@ -3,7 +3,7 @@
 
 {% block body %}
 <p class="Head-Article">Articles</h3>
-<hr>
+<hr class="liner4">
 
 {% if articles %}
 
@@ -14,7 +14,7 @@
                 <div class="card-articles">
                     <div class="article-body">
                         <img class="articles-photo" src="{{article.thumbnail_url}}">
-                        <hr>
+                        <hr class="liner">
                         <p class = "article-list">{{article.title}}</p>
                         <a href="/article/{{article.id}}"><button class="article-button">Read Now</button> </a>
                     </div>
@@ -22,8 +22,9 @@
             </div>
         {% endfor %}
     </div>
-{% endfor %}
 
+{% endfor %}
+<hr class="liner4">
 {% else %}
 <div class = "alert alert-danger">There is no articles in this page.</div>
     

@@ -6,15 +6,23 @@
 
 {% if child %}
 
-<img src="{{ child.child_photo_url }}"  width="288" height="211">
-<hr>
-<h4>{{ child.name }}</h4>
-<hr>
-Age : {{child.age}}
-<hr>
-{{child.about}}
-<hr>
-<a href = "/donate/{{ child.id }}" class = "btn btn-danger ">Donate Now</a>
+
+<div>
+    <img class="child-photo-1" src="{{ child.child_photo_url }}"  >
+    <hr class="profile-line">
+</div>
+<div>
+<p class="child-name2"> <span class="name2">Name:</span> {{ child.name }}</p>
+
+<p class="child-age2"> <span class="age2"> Age:</span> {{child.age}}</p>
+</div>
+<p class="story2">Story</p>
+<p class="about-section">{{child.about}}</p>
+<div>
+    <a href='/donate/{{ child.id }}'>
+        <button class="donate-button-child">Donate Now</button>
+    </a>
+</div>
 
 {% else %}
 

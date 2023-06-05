@@ -1,0 +1,76 @@
+.child-name2 {
+  margin-top: 14px;
+  font-weight: normal;
+  font-size: 23px;
+}
+.child-age2{
+  font-weight: normal;
+  font-size: 23px;
+}
+.name2{
+  font-weight: bold;
+  font-size: 23px;
+}
+.age2{
+  font-weight: bold;
+  font-size: 23px;
+}
+.story2{
+  font-weight: bold;
+  font-size: 23px;
+}
+.profile-line{
+  width:38%;
+  height: 3px;
+  text-align:left;
+  margin-left:0;
+  color:rgb(6, 130, 255);
+  background-color:rgb(6, 130, 255);
+}
+
+.child-photo-1 {
+  height: 316.5px;
+  width: 420px;
+  margin-right: 20px;
+  border-radius: 20px;
+  color: rgb(6, 130, 255);
+  border-width: 4px;
+  border:solid;
+}
+
+.about-section{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0);
+    text-align: justify;
+    font-size: 20px;
+}
+
+.donate-button-child {
+    color: white;
+    border-color: rgb(6, 130, 255);
+    background-color: rgb(6, 130, 255);
+    border-style: solid;
+    font-weight: bold;
+    border-width: 1px;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 8px;
+    margin-bottom: 35px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 32px;
+    padding-left: 32px;
+    top: 538.5px;
+    left: 67px;
+    transition: background-color 0.35s, color 0.35s;
+  }
+  .donate-button-child:hover {
+    background-color: white;
+    color: rgb(6, 130, 255);
+  }
+  .donate-button-child:active {
+    opacity: 0.7;
+  }

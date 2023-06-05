@@ -1,0 +1,21 @@
+.child-name2 {
+    margin-top: 14px;
+    font-weight: normal;
+    font-size: 23px;
+}
+.child-age2{
+    font-weight: normal;
+    font-size: 23px;
+}
+.name2{
+    font-weight: bold;
+    font-size: 23px;
+}
+.line{
+    width:41%;
+    height: 3px;
+    text-align:left;
+    margin-left:0;
+    color:rgb(6, 130, 255);
+    background-color:rgb(6, 130, 255);
+}

@@ -4,21 +4,20 @@
 
 {% if child %}
 
-<h4>{{ child.name }}</h4>
-<hr>
-Age: {{ child.age }}
-<hr>
-{{ child.about }}
-<hr>
 <h2>Donate with Bank Transfer</h2>
 <div class="form-group">
-    <div><strong>Bank Account Name : </strong> {{ child.name }}</div>
-    <div><strong>Bank : </strong>{{ child.bank }}</div>
-    <div><strong>IBAN : </strong>{{ child.iban }}</div>
+    <div><p class="name2">Child's Name: 
+        <span class="child-name2"> {{ child.name }}</p></span> 
+    </div>
+    <div><p class="name2">Bank Account Name : 
+        <span class="child-name2"> {{ child.bank }}</p></span> 
+    </div>
+    <div><p class="name2">IBAN : 
+        <span class="child-name2"> {{ child.iban }}</p></span> 
+    </div>
 </div>
-<hr>
-<h5>OR</h5>
-<hr>
+
+<hr class="line">
 <h2>Donate with Credit/Debit Card</h2>
 
 <form method="post">
@@ -49,7 +48,7 @@ Age: {{ child.age }}
         {{ form.cc_cvv(class="form-control") }}
     </div>
     
-    <button type="submit" class="btn btn-primary">Donate</button>
+    <button type="submit" class="donate-button-child">Donate</button>
 </form>
 
 

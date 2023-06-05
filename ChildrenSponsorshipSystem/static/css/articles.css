@@ -62,3 +62,19 @@
     justify-content: center;
     color: rgb(6, 130, 255);
 }
+.liner{
+  width:auto;
+  height: 3px;
+  text-align:center;
+  margin-left:0;
+  color:rgb(6, 130, 255);
+  background-color:rgb(6, 130, 255);
+}
+.liner4{
+  width:auto;
+  height: 3px;
+  text-align:center;
+  margin-left:0;
+  color:rgb(159, 159, 159);
+  background-color: rgb(159, 159, 159);
+}

@@ -31,7 +31,7 @@
   left: 0;
   font-size: var(--font-size-base);
   font-weight: 600;
-  font-family: var(--font-plus-roboto);
+  font-family: 'Roboto', sans-serif;
   color: var(--color-black);
   text-align: left;
   display: inline-block;
@@ -74,7 +74,7 @@
   position: relative;
   font-size: var(--font-size-base);
   font-weight: 600;
-  font-family: var(--font-plus-roboto);
+  font-family: 'Roboto', sans-serif;
   color: var(--color-cornflowerblue-100);
   text-align: left;
 }
@@ -100,7 +100,7 @@
   position: relative;
   font-size: var(--font-size-base);
   font-weight: 600;
-  font-family: var(--font-plus-roboto);
+  font-family: 'Roboto', sans-serif;
   color: var(--color-white);
   text-align: left;
 }
@@ -131,7 +131,7 @@
   left: 530px;
   font-size: 50px;
   font-weight: 700;
-  font-family: inherit;
+  font-family: 'Roboto', sans-serif;
   text-align: left;
 }
 .support-children-in {
@@ -182,7 +182,7 @@
   position: relative;
   font-size: var(--font-size-sm);
   font-weight: 600;
-  font-family: var(--font-plus-roboto);
+  font-family: 'Roboto', sans-serif;
   color: var(--color-white);
   text-align: left;
 }
@@ -354,7 +354,7 @@
   left: 149px;
   font-size: var(--font-size-xl);
   font-weight: 700;
-  font-family: inherit;
+  font-family: 'Roboto', sans-serif;
 }
 .we-are-here {
   margin: 0;
@@ -373,7 +373,7 @@
   left: 149px;
   font-size: var(--font-size-31xl);
   font-weight: 700;
-  font-family: inherit;
+  font-family: 'Roboto', sans-serif;
   text-align: left;
 }
 .za-hando {
@@ -516,7 +516,7 @@
   top: 1943px;
   font-size: var(--font-size-31xl);
   font-weight: 700;
-  font-family: inherit;
+  font-family: 'Roboto', sans-serif;
 }
 .our-dev-team {
   top: 2055px;
@@ -663,5 +663,5 @@
   text-align: center;
   font-size: var(--font-size-5xl);
   color: var(--color-darkslategray-100);
-  font-family: var(--font-plus-roboto);
+  font-family: 'Roboto', sans-serif;
 }
