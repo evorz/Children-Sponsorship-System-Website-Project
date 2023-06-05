@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 04 Haz 2023, 20:47:06
+-- Üretim Zamanı: 05 Haz 2023, 14:11:41
 -- Sunucu sürümü: 10.4.28-MariaDB
 -- PHP Sürümü: 8.2.4
 
@@ -77,7 +77,8 @@ INSERT INTO `childs` (`id`, `name`, `age`, `child_photo_url`, `about`, `bank`, `
 (3, 'Mehmet Öztürk', 13, 'https://cdn.discordapp.com/attachments/777834731173707796/1114889147119829082/image.png', 'Mehmet is a 13-year-old boy who comes from a disadvantaged family. His parents struggle to provide for their children\'s basic needs due to financial constraints. Despite the circumstances, Mehmet is a cheerful and energetic child who loves playing football with his friends. He dreams of becoming a professional football player and representing his country. Your support can help provide him with opportunities to participate in sports activities and pursue his dreams.', 'Koop Bank', 'TR12 0000 0000 0000 0000 0000 03', 7000, '2023-06-04 12:22:09'),
 (4, 'Ayşe Demir', 13, 'https://media.discordapp.net/attachments/777834731173707796/1114889093374021652/image.png', 'Ayşe is a 13-year-old girl who comes from an underprivileged background. Her family faces financial difficulties, making it challenging for them to provide Ayşe with proper education and healthcare. Despite the hardships, Ayşe is a determined and bright student who loves reading books. She dreams of becoming a teacher and making a positive impact in her community. Your support can provide Ayşe with access to education and resources, empowering her to achieve her goals.', 'CreditWest Bank', 'TR12 0000 0000 0000 0000 0000 04', 0, '2023-06-04 12:23:29'),
 (5, 'Zeynep Karadeniz', 15, 'https://media.discordapp.net/attachments/777834731173707796/1114889120062378194/image.png', 'Zeynep is an 15-year-old girl from a disadvantaged family. Financial struggles prevent her family from providing her with adequate opportunities and resources. Zeynep is a talented singer with a passion for music. She dreams of becoming a professional singer and sharing her voice with the world. Your support can help Zeynep receive music lessons and cultivate her talent, allowing her to pursue her dreams.', 'Ziraat Bank', 'TR12 0000 0000 0000 0000 0000 05', 16655, '2023-06-04 12:24:04'),
-(6, 'Elif Yıldız', 14, 'https://media.discordapp.net/attachments/777834731173707796/1114889188479877207/image.png', 'Elif is an 14-year-old girl who comes from a disadvantaged background. Her family faces financial difficulties, making it challenging to provide for her basic needs and education. Elif is a creative and curious child who loves storytelling and writing. She dreams of becoming a writer and sharing her stories with the world. Your support can provide Elif with access to books and educational resources, empowering her to pursue her passion for writing and achieve her dreams.', 'Koop Bank', 'TR12 0000 0000 0000 0000 0000 06', 8000, '2023-06-04 12:24:42');
+(6, 'Elif Yıldız', 14, 'https://media.discordapp.net/attachments/777834731173707796/1114889188479877207/image.png', 'Elif is an 14-year-old girl who comes from a disadvantaged background. Her family faces financial difficulties, making it challenging to provide for her basic needs and education. Elif is a creative and curious child who loves storytelling and writing. She dreams of becoming a writer and sharing her stories with the world. Your support can provide Elif with access to books and educational resources, empowering her to pursue her passion for writing and achieve her dreams.', 'Koop Bank', 'TR12 0000 0000 0000 0000 0000 06', 8000, '2023-06-04 12:24:42'),
+(7, 'Gülsoy', 15, 'https://media.discordapp.net/attachments/1096098728739356672/1115217737397063761/indir.jpeg?width=662&height=662', 'Gülsoy is an 13-year-old boy. His family is going through financial difficulties, making it challenging for them to provide for his basic needs. Ahmet is a bright and curious child who loves going to school. He dreams of becoming a doctor one day and helping people in need. Despite the hardships he faces, Ahmet remains resilient and determined. Your support will make a significant impact on his life and help him pursue his dreams.TR12 0000 0000 0000 0000 0000 07', 'İşBank', 'TR12 0000 0000 0000 0000 0000 10', 0, '2023-06-05 09:57:20');
 
 -- --------------------------------------------------------
 
@@ -131,7 +132,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `phone`, `password`, `profile_photo_url`) VALUES
 (1, 'Jack Sparrow', 'PirateJack', 'pirate.killer@gmail.com', '+90 548 866 5777', '$5$rounds=535000$Xquvza0nCx6u9HKJ$1NiHeqnZtdvZh275kYrDn7KhVPlDF6sZWmwXPOfDnK3', 'https://i.etsystatic.com/31292064/r/il/90dbb9/3243771512/il_fullxfull.3243771512_pgtl.jpg'),
-(3, 'admin', 'admin', 'admin@hotmail.com', '0', '$5$rounds=535000$GPaIU4q1FDWC86Zd$jXhw3zpq4IVyElkuylwrnLiUPP/rqsG3WplEjHY5GPC', 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Ataturk1930s.jpg'),
+(3, 'admin', 'admin', 'admin@hotmail.com', '0', '$5$rounds=535000$GPaIU4q1FDWC86Zd$jXhw3zpq4IVyElkuylwrnLiUPP/rqsG3WplEjHY5GPC', 'https://previews.123rf.com/images/ionutparvu/ionutparvu1612/ionutparvu161201855/67603113-administration-stamp-sign-text-word-logo-blue.jpg'),
 (6, 'Mehmet Yılmaz', 'mehmet.yilmaz', 'mehmet.yilmaz@hotmail.com', '+90 555 123 4567', '$5$rounds=535000$2mpg883u3oTDTV8X$D5NC3hVD06eIdUuRdj5Zv/LyrL0G488IMLPwLQ7/IJ4', 'https://media.discordapp.net/attachments/1096098728739356672/1114908331774050345/indir_1.jpeg?width=676&height=676'),
 (7, 'Ayşe Demir', 'aysedemir_123', 'aysedemir_123@gmail.com', '+90 532 987 6543', '$5$rounds=535000$qc7n3WL/yszzQn90$CW4S57yHhuPooA0JREwxNvM4.JFJUK84ht8w.C7pPIC', 'https://cdn.discordapp.com/attachments/1096098728739356672/1114907356225093742/indir.jpeg'),
 (8, 'Ahmet Kaya', 'aKaya_34', 'aKaya_34@outlook.com', '+90 532 123 4567', '$5$rounds=535000$YrbqMXayypDy6bWm$77FLi3qU9qPRUmRf8XIZalt/Ur.tnoY/1rnw5ouJnX.', 'https://media.discordapp.net/attachments/1096098728739356672/1114908679276339210/indir_3.jpeg?width=676&height=676'),
@@ -183,7 +184,7 @@ ALTER TABLE `articles`
 -- Tablo için AUTO_INCREMENT değeri `childs`
 --
 ALTER TABLE `childs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `donations`
