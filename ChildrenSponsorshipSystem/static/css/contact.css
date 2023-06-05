@@ -60,6 +60,7 @@
 .our-location {
   position: absolute;
   font-size: 20px;
+  width: 250px;
   top: 0px;
   left: 54.36px;
   font-weight: 800;
