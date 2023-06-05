@@ -19,3 +19,11 @@
     color:rgb(6, 130, 255);
     background-color:rgb(6, 130, 255);
 }
+.content-box {
+    margin-top: 20px;
+    background-color: #F8F9FA;
+    padding: 20px;
+    border: 2px solid #F8F9FA;
+    border-radius: 20px;
+    box-shadow: 3px 3px 20px 20px rgba(0, 0, 0, 0.15);
+  }

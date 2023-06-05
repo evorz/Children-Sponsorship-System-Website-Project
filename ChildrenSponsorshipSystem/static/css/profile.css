@@ -1,8 +1,86 @@
 .resize-profile-main {
-    width: 160px;
-    height: 160px;
-    border-radius: 80px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
     color: rgb(6, 130, 255);;
     border:solid;
     border-width: 4px;
+    margin-bottom: 25px;
+  }
+  .child-name2 {
+    margin-top: 14px;
+    font-weight: normal;
+    font-size: 23px;
+}
+.article-title{
+    font-weight: bold;
+    font-size: 28px;
+}
+.Author-Date{
+    font-weight: bold;
+    font-size: 23px;
+}
+.liner3{
+    width:750px;
+    height: 3px;
+    text-align:left;
+    margin-left:0;
+    color:rgb(6, 130, 255);
+    background-color:rgb(6, 130, 255);
+}
+.content-box {
+    margin-top: 20px;
+    background-color: #F8F9FA;
+    padding: 20px;
+    border: 2px solid #F8F9FA;
+    border-radius: 20px;
+    box-shadow: 3px 3px 20px 20px rgba(0, 0, 0, 0.15);
+  }
+
+.Edit-Profile-Button {
+    color: white;
+    border-color: rgb(6, 130, 255);
+    background-color: rgb(6, 130, 255);
+    border-style: solid;
+    font-weight: bold;
+    border-width: 1px;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-right: 25px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 32px;
+    padding-left: 32px;
+    transition: background-color 0.35s, color 0.35s;
+  }
+.Edit-Profile-Button:hover {
+    background-color: white;
+    color: rgb(6, 130, 255);
+  }
+.Edit-Profile-Button:active {
+    opacity: 0.7;
+  }
+
+.Edit-Password-Button {
+    color: white;
+    border-color: rgb(6, 130, 255);
+    background-color: rgb(6, 130, 255);
+    border-style: solid;
+    font-weight: bold;
+    border-width: 1px;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-right: 25px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-right: 32px;
+    padding-left: 32px;
+    transition: background-color 0.35s, color 0.35s;
+  }
+.Edit-Password-Button:hover {
+    background-color: white;
+    color: rgb(6, 130, 255);
+  }
+.Edit-Password-Button:active {
+    opacity: 0.7;
   }

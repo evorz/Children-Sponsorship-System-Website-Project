@@ -3,21 +3,23 @@
 {% block body %}
 
 {% if profile %}
-
+<div class="content-box">
 <div><img class="resize-profile-main" src="{{ profile.profile_photo_url }}"> </div>
-<div><h3>Name : {{ profile.name }}</h3></div>
-<div><h3>Username : {{ profile.username }}</h3></div>
-<div><h3>Email : {{ profile.email }}</h3></div>
-<div><h3>Phone Number : {{ profile.phone }}</h3></div>
-<hr>
-<a href = "/profile/edit/{{ profile.id }}" class = "btn btn-danger ">Edit Profile</a>
-<a href = "/profile/changepassword/{{ profile.id }}" class = "btn btn-danger ">Change Password</a>
-<hr>
+<div><h3>Name :<span class="child-name2">{{ profile.name }}</span></h3></div>
+<div><h3>Username : <span class="child-name2">{{ profile.username }}</span></h3></div>
+<div><h3>Email : <span class="child-name2">{{ profile.email }}</span></h3></div>
+<div><h3>Phone Number : <span class="child-name2">{{ profile.phone }}</span></h3></div>
+<hr >
 
+<a href="/profile/edit/{{ profile.id }}">
+  <button class="Edit-Profile-Button ">Edit Profile</button>
+</a>
+<a href="/profile/changepassword/{{ profile.id }}">
+  <button class="Edit-Password-Button">Change Password</button>
+</a>
+<hr >
 {% if donations %}
-<br>
-<br>
-<hr>
+
 <h3>Donation History</h3>
 <table class="table table-hover">
     <thead>
@@ -60,6 +62,7 @@
   
   <hr>
 <br>
+</div>
 {% endif %}
 
 {% else %}
