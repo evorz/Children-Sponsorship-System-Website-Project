@@ -35,8 +35,7 @@ class LoginForm(Form):
 class ChangePasswordForm(Form):
     old_password = PasswordField("Current Password")
     new_password = PasswordField("New Password")
-        
-    
+          
 #MySQL bağlantısının yapıldığı yer.
 app = Flask(__name__)
 app.secret_key = "css"
@@ -142,7 +141,6 @@ def login():
             return redirect(url_for("login"))
         
     return render_template("login.html",form = form)
-
 
 @app.route("/profile/changepassword/<string:id>",methods = ["GET","POST"])
 @login_required
@@ -376,7 +374,6 @@ def addchild():
         about = form.about.data
         child_photo_url = form.child_photo_url.data
         
-        
         cursor = mysql.connection.cursor()
         query = "Insert into childs (name,age,iban,bank,about,child_photo_url) VALUES(%s,%s,%s,%s,%s,%s)"
         
@@ -563,7 +560,6 @@ def donate(id):
     if child:
         childID = child["id"]
         childName = child["name"]
-        
 
         cursor2 = mysql.connection.cursor()
         query2 = "SELECT * FROM users WHERE username = %s"
@@ -623,7 +619,6 @@ def donate(id):
 
     return render_template("donate.html", form=form, child=child)
         
-
 #Makale için form. ELLEMEYİN!
 class ArticleForm(Form):
     thumbnail_url = StringField("Article Thumbnail URL")
@@ -659,10 +654,6 @@ class UpdateProfileForm(Form):
     confirm = PasswordField("Confirm Password")
     profile_photo_url = StringField("Profile Photo URL")
 
-
 #SİLMEYİN!
 if __name__ == "__main__":
     app.run(debug = True)
-    
-
-
