@@ -1,0 +1,80 @@
+.content-box {
+  margin-top: 20px;
+  background-color: #F8F9FA;
+  padding: 20px;
+  border: 2px solid #F8F9FA;
+  border-radius: 20px;
+  box-shadow: 3px 3px 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.Add-Button {
+  color: white;
+  border-color: rgb(6, 130, 255);
+  background-color: rgb(6, 130, 255);
+  border-style: solid;
+  font-weight: bold;
+  border-width: 1px;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-right: 25px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 32px;
+  padding-left: 32px;
+  transition: background-color 0.35s, color 0.35s;
+}
+.Add-Button:hover {
+  background-color: white;
+  color: rgb(6, 130, 255);
+}
+.Add-Button:active {
+  opacity: 0.7;
+}
+
+.Update-Button {
+  color: white;
+  border-color: green;
+  background-color: green;
+  border-style: solid;
+  font-weight: bold;
+  border-width: 1px;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 32px;
+  padding-left: 32px;
+  transition: background-color 0.35s, color 0.35s;
+}
+.Update-Button:hover {
+  background-color: white;
+  color: green;
+}
+.Update-Button:active {
+  opacity: 0.7;
+}
+
+.Delete-Button {
+  color: white;
+  border-color: red;
+  background-color: red;
+  border-style: solid;
+  font-weight: bold;
+  border-width: 1px;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-right: 10px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-right: 32px;
+  padding-left: 32px;
+  transition: background-color 0.35s, color 0.35s;
+}
+.Delete-Button:hover {
+  background-color: white;
+  color: red;
+}
+.Delete-Button:active {
+  opacity: 0.7;
+}
