@@ -5,12 +5,12 @@
     
 {% if article %}
 
-<h4>{{ article.title }}</h4>
+<p class="article-title">{{ article.title }}</p>
 <hr class="liner3">
-Author : {{article.author}}
-<hr>
-Date : {{article.created_date}}
-<hr>
+<p class="child-name2"> <span class="Author-Date"> Author :</span> {{article.author}} </p>
+
+<p class="child-name2"> <span class="Author-Date"> Date :</span> {{article.created_date}} </p>
+
 {{article.content|safe}}
 
 {% else %}
